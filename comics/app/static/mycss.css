@@ -1,0 +1,103 @@
+﻿@charset "utf-8"
+body {
+	margin: 0px;
+	padding: 0px;
+	color: blue;
+}
+#header {
+	text-align: center;
+	border-bottom: 1px #cccccc solid;
+}
+#header h1 {
+	margin: 0px 0px 0px 0px;
+	letter-spacing: 0.2em;
+}
+#main {
+	margin-left: 0px; /* Опять отступ от левого края */
+	border-left: 5px #42a315 solid;
+	padding: 10px;
+}
+#main #add {
+	margin: 0px 0px 0px 0px;
+}
+#main h2 {
+	margin: 0px 0px 10px 10px; /* Отступ сверху, , Отступ снизу, Отступ Слева */
+}
+#main table {
+	width: 70%; /* Ширина таблицы */
+	border: 2px double black; /* Цвета ширина линий таблицы */
+	border-collapse: collapse;
+}
+#main table td, #main table tr {
+	border: 1px #1A1A1A solid;
+	padding: 5px;
+}
+#main table td.centered {
+	text-align: center;
+}
+#pagination #previous-page a {
+	float: left;
+	margin-left: 20px;
+}
+#pagination #num-pages {
+	text-align: center;
+}
+#pagination #next-page a {
+	float: right;
+	margin-right: 420px;
+}
+#information table {
+	width: 60%; /* Ширина таблицы */
+	border: 2px double black; /* Цвета ширина линий таблицы */
+	border-collapse: collapse;
+}
+#information table td, #main table tr {
+	border: 1px #1A1A1A solid;
+	padding: 5px;
+}
+#information table td.centered {
+	text-align: center;
+}
+#master {
+	margin-left: 0px; /* Опять отступ от левого края */
+	border-left: 5px #0f4791 solid;
+	padding: 10px;
+}
+#master #add {
+	margin: 0px 0px 0px 0px;
+}
+#master h2 {
+	margin: 0px 0px 10px 10px; /* Отступ сверху, , Отступ снизу, Отступ Слева */
+}
+#master table {
+	width: 40%; /* Ширина таблицы */
+	border: 2px double black; /* Цвета ширина линий таблицы */
+	border-collapse: collapse;
+}
+#master table td, #main table tr {
+	border: 1px #1A1A1A solid;
+	padding: 5px;
+}
+#master table td.centered {
+	text-align: center;
+}
+#comics {
+	margin-left: 0px; /* Опять отступ от левого края */
+	border-left: 5px #8c0a0a solid;
+	padding: 10px;
+}
+#comics h2 {
+	margin: 0px 0px 10px 10px; /* Отступ сверху, , Отступ снизу, Отступ Слева */
+}
+#comics table {
+	width: 20%; /* Ширина таблицы */
+	border: 2px double black; /* Цвета ширина линий таблицы */
+	border-collapse: collapse;
+}
+#comics table td, #main table tr {
+	border: 1px #1A1A1A solid;
+	padding: 5px;
+}
+#comics table td.centered {
+	text-align: center;
+}

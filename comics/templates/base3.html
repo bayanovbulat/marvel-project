@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+	<HEAD>
+		<TITLE>Comics</TITLE>
+		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+	</HEAD>
+	<BODY>
+	<div id = "header">
+		<h1>Список комиксов для пользователя</h1>
+	</div>
+	<div id = "comics">
+	<h2>Комиксы:</h2>
+	<p>Количество комиксов: {{ comics|length }}</p> <!-- Применяем фильтры -->
+	<table>
+		{% for comic in object_list %} <!-- Работаем с классом-контроллером ListView -->
+			{% if forloop.first %}
+			<tr>
+				<th>Название</th>
+			</tr>
+			{% endif %}
+			<tr>
+				<td class = "centered"><a href="{% url 'comic2' id=comic.id %}?page={{ page_obj.number }}">{{ comic.name|truncatechars:30 }}</a></td>
+			</tr>
+		{% empty %} Список комиксов пуст
+		{% endfor %}
+	</table>
+	</div>
+	<div id = "pagination">
+	{% if paginator.num_pages > 1 %}
+			{% if page_obj.has_previous %} <!-- Если это не первая страница --> <!-- Также применяем page_obj из ListView -->
+			<div id = "previous-page">
+				<a href="{% url 'master' %}?page={{ page_obj.previous_page_number }}">&lt;</a>
+			</div>
+			{% endif %}
+			{% if page_obj.has_next %} <!-- Если это не последняя страница -->
+				<div id="next-page">
+					<a href="{% url 'master' %}?page={{ page_obj.next_page_number }}">&gt;</a>
+				</div>
+			{% endif %}
+			<div id="num-pages">
+				{% for pn in paginator.page_range %}
+					{% if not forloop.first %}
+						&nbsp;&nbsp;|&nbsp;
+					{% endif %}
+					{% if page_obj.number != pn %}
+						<a href="{% url 'master' %}?page={{ pn }}">
+					{% endif %}
+					{{ pn }}
+					{% if page_obj.number != pn %}
+						</a>
+					{% endif %}
+				{% endfor %}
+			</div>
+	{% endif %}
+	</div>
+	</BODY>
+</HTML>

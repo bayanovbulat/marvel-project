@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+	<HEAD>
+		<TITLE>{{ comic.name }}</TITLE>
+		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+	</HEAD>
+	<BODY>
+		<h1>Comic name: {{ comic.name }}</h1>
+		{% if comment == 1 %}<a href="{% url 'master' %}?page={{ pn }}">Cancel</a>{% endif %}
+		{% if comment == 2 %}<a href="{% url 'comics' %}?page={{ pn }}">Cancel</a>{% endif %}
+		<div id="information">
+			<table>
+				<tr><td>Description</td>
+				<td>{{ comic.description }}</td></tr>
+				<tr><td>Heroes list</td>
+				<td class = "centered">{{ comic.heroes_list }}</td></tr>
+				<tr><td>Release date</td>
+				<td class = "centered">{{ comic.release_date }}</td></tr>				
+				<tr><td>EAN</td>
+				<td class = "centered">{{ comic.ean }}</td></tr>
+				<tr><td>Type release</td>
+				<td class = "centered">{{ comic.type }}</td></tr>
+				<tr><td>Cover</td>
+				<td class = "centered"><img src = "{{ comic.image_name }}"  alt = "Not found" width = 360 height = 553 /></td></tr>	
+				<tr><td>In stock</td>
+				<td class = "centered">{% if comic.in_stock == True %} + {%endif%}</td></tr>	
+			</table>
+		</div>
+	</BODY>
+</HTML>

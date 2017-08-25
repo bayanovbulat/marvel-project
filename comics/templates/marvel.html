@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+	<HEAD>
+		<TITLE>Marvel Add</TITLE>
+		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+	</HEAD>
+	<BODY>
+		<form action="" method="post">{% csrf_token %}
+			<input type = "text" name = "name">
+			<input type="submit" value="Add">
+		</form>
+		{{ comment }}
+		<a href="{% url 'all' %}?page={{ pn }}">Cancel to all</a>
+		<a href="{% url 'master' %}?page={{ pn }}">Cancel to master</a>
+	</BODY>
+</HTML>
