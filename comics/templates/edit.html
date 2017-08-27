@@ -3,12 +3,15 @@
 	<HEAD>
 		<TITLE>Edit: {{ comic.name }}</TITLE>
 		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
 	</HEAD>
 	<BODY>
+	<div id = "form">
 		<form action="" method="post">{% csrf_token %}
 			{{ form.as_p }}
 			<input type="submit" value="Save">
 		</form>
 		<a href="{% url 'master' %}?page={{ pn }}">Cancel</a>
+	</div>
 	</BODY>
 </HTML>

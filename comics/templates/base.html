@@ -10,7 +10,7 @@
 		<h1>Список комиксов</h1>
 	</div>
 	<div id = "main">
-	<h2>Комиксы: <a href="{% url 'marvel' %}">Marvel Add</a></h2>
+	<h2>Комиксы: <a href="{% url 'marvel' %}?page={{ page_obj.number }}">Marvel Add</a></h2>
 
 	<p>Количество комиксов: {{ comics|length }}</p> <!-- Применяем фильтры -->
 	<table>
@@ -41,20 +41,20 @@
 	{% if paginator.num_pages > 1 %}
 			{% if page_obj.has_previous %} <!-- Если это не первая страница --> <!-- Также применяем page_obj из ListView -->
 			<div id = "previous-page">
-				<a href="{% url 'all' %}?page={{ page_obj.previous_page_number }}">&lt;</a>
+				<a href="{% url 'all' %}?page={{ page_obj.previous_page_number }}">&lt;</a><!-- ссылка на предыдущую страницу -->
 			</div>
 			{% endif %}
 			{% if page_obj.has_next %} <!-- Если это не последняя страница -->
 				<div id="next-page">
-					<a href="{% url 'all' %}?page={{ page_obj.next_page_number }}">&gt;</a>
+					<a href="{% url 'all' %}?page={{ page_obj.next_page_number }}">&gt;</a><!-- ссылка на следующую страницу -->
 				</div>
 			{% endif %}
 			<div id="num-pages">
-				{% for pn in paginator.page_range %}
+				{% for pn in paginator.page_range %} <!-- список содержащий номера страниц -->
 					{% if not forloop.first %}
 						&nbsp;&nbsp;|&nbsp;
 					{% endif %}
-					{% if page_obj.number != pn %}
+					{% if page_obj.number != pn %} <!-- number номер текущей страницы -->
 						<a href="{% url 'all' %}?page={{ pn }}">
 					{% endif %}
 					{{ pn }}
