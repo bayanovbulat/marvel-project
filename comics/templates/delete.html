@@ -1,16 +1,18 @@
 {% load staticfiles %}
 <!DOCTYPE HTML>
 	<HEAD>
-		<TITLE>Marvel Add</TITLE>
+		<TITLE>Delete</TITLE>
 		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
 		<link type = "text/css" href = "{% static "style.css" %}" rel = "stylesheet"/>
 	</HEAD>
 	<BODY>
+		<div id = "delete">
+		<li>Product: {{ current_comic.product.name|truncatechars:30 }}</li>
 		<form action="" method="post">{% csrf_token %}
-			<input type = "text" name = "name">
-			<input type="submit" value="Add">
+			{{ form.as_p }}
+			<input type="submit" value="Delete">
 		</form>
-		<a href="{% url 'all' %}?page={{ pn }}">Cancel to all</a>
 		<a href="{% url 'master' %}?page={{ pn }}">Cancel to master</a>
+		</div>
 	</BODY>
 </HTML>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class ComicModel(models.Model):
@@ -15,3 +16,7 @@ class ComicModel(models.Model):
 	cover = models.ImageField(upload_to="app/static", verbose_name = "Обложка")
 	in_stock = models.BooleanField(default = False, verbose_name = "Выбрать комикс")
 	image_name = models.CharField(max_length = 100, editable = False, default = "")
+	
+class Comic_UserModel(models.Model):
+	name = models.ForeignKey(User)
+	product = models.ForeignKey(ComicModel, null = True, blank = True)

@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+	<HEAD>
+		<TITLE>Login</TITLE>
+		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "style.css" %}" rel = "stylesheet"/>
+	</HEAD>
+	<BODY>
+		<h2>Login</h2>
+		<div id = "login">
+			<form action="" method="post">{% csrf_token %}
+				{{ form.as_p }}
+					<input type="submit" value="Enter">
+					<input type="hidden" name = "next" value="{{ next }}">
+			</form>
+		</div>
+	</BODY>
+</HTML>

@@ -1,9 +1,9 @@
 {% load staticfiles %}
 <!DOCTYPE HTML>
 	<HEAD>
-		<TITLE>Marvel</TITLE>
+		<TITLE>All</TITLE>
 		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
-		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+		<link type = "text/css" href = "{% static "style.css" %}" rel = "stylesheet"/>
 	</HEAD>
 	<BODY>
 	<div id = "header">
@@ -11,7 +11,6 @@
 	</div>
 	<div id = "main">
 	<h2>Комиксы: <a href="{% url 'marvel' %}?page={{ page_obj.number }}">Marvel Add</a></h2>
-
 	<p>Количество комиксов: {{ comics|length }}</p> <!-- Применяем фильтры -->
 	<table>
 		{% for comic in object_list %} <!-- Работаем с классом-контроллером ListView -->
@@ -26,7 +25,7 @@
 				</tr>
 			{% endif %}
 			<tr>
-				<td>{{ comic.name|truncatechars:30 }}</td>
+				<td><a href="{% url 'comic' id=comic.id %}?page={{ page_obj.number }}&comment=2">{{ comic.name|truncatechars:30 }}</a></td>
 				<td class = "centered">{{ comic.release_date }}</td>
 				<td class = "centered">{{ comic.ean }}</td>
 				<td class = "centered">{{ comic.type }}</td>

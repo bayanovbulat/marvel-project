@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+	<HEAD>
+		<TITLE>Logout</TITLE>
+		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+	</HEAD>
+	<BODY>
+		<h2>Good bye!</h2>
+		<p><a href="{% url 'login' %}">Cancel to login</p>
+	</BODY>
+</HTML>

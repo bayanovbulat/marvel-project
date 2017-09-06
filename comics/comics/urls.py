@@ -18,10 +18,16 @@ from django.contrib import admin
 from app.views import ComicViewSet
 from rest_framework import routers
 
+from django.contrib.auth.views import login, logout
+from app.models import ComicModel
+from app.views import LoginView, LogoutView
+
 router = routers.DefaultRouter()
 router.register(r'notes', ComicViewSet)
 
 urlpatterns = [
+	url(r'login/', LoginView.as_view(), name = "login"),
+	url(r'logout/', LogoutView.as_view(), name = "logout"),
 	url(r'^', include(router.urls)),
 	url(r'^', include("app.urls")),
 	url(r'^admin/', admin.site.urls),

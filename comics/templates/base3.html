@@ -3,50 +3,52 @@
 	<HEAD>
 		<TITLE>Comics</TITLE>
 		<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
-		<link type = "text/css" href = "{% static "mycss.css" %}" rel = "stylesheet"/>
+		<link type = "text/css" href = "{% static "style.css" %}" rel = "stylesheet"/>
 	</HEAD>
 	<BODY>
 	<div id = "header">
-		<h1>Список комиксов для пользователя</h1>
+		<h1>Список комиксов от заказчиков</h1>
 	</div>
 	<div id = "comics">
-	<h2>Комиксы:</h2>
-	<p>Количество комиксов: {{ comics|length }}</p> <!-- Применяем фильтры -->
 	<table>
-		{% for comic in comics %}
+		{% for comic in pages %}
 			{% if forloop.first %}
-			<tr>
-				<th>Название</th>
-			</tr>
+				<tr>
+					<th>Название</th>
+					<th>&nbsp;</th>
+					<th>Заказчик</th>
+				</tr>
 			{% endif %}
 			<tr>
-				<td class = "centered"><a href="{% url 'comic' id=comic.id %}?page={{ comics.number }}&comment=2">{{ comic.name|truncatechars:30 }}</a></td>
+				<td>{{ comic.product.name|truncatechars:30 }}</td>
+				<td class = "centered"><a href="{% url 'comic' id=comic.product.id %}?page={{ pages.number }}&comment=3">view</a></td>		
+				<td>{{ comic.name }}</td>
 			</tr>
 		{% empty %} Список комиксов пуст
 		{% endfor %}
 	</table>
 	</div>
 	<div id = "pagination">
-			{% if comics.has_previous %} <!-- Если это не первая страница -->
+			{% if pages.has_previous %} <!-- Если это не первая страница -->
 			<div id = "previous-page">
-				<a href="{% url 'comics' %}?page={{ comics.previous_page_number }}">&lt;</a>
+				<a href="{% url 'comics' %}?page={{ pages.previous_page_number }}">&lt;</a>
 			</div>
 			{% endif %}
-			{% if comics.has_next %} <!-- Если это не последняя страница -->
+			{% if pages.has_next %} <!-- Если это не последняя страница -->
 				<div id="next-page">
-					<a href="{% url 'comics' %}?page={{ comics.next_page_number }}">&gt;</a>
+					<a href="{% url 'comics' %}?page={{ pages.next_page_number }}">&gt;</a>
 				</div>
 			{% endif %}
 			<div id="num-pages">
-				{% for pn in comics.paginator.page_range %}
+				{% for pn in pages.paginator.page_range %}
 					{% if not forloop.first %}
 						&nbsp;&nbsp;|&nbsp;
 					{% endif %}
-					{% if comics.number != pn %}
+					{% if pages.number != pn %}
 						<a href="{% url 'comics' %}?page={{ pn }}">
 					{% endif %}
 					{{ pn }}
-					{% if comics.number != pn %}
+					{% if pages.number != pn %}
 						</a>
 					{% endif %}
 				{% endfor %}

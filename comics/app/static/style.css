@@ -12,9 +12,22 @@ body {
 	margin: 0px 0px 0px 0px;
 	letter-spacing: 0.2em;
 }
+#leftmenu {
+	float: left;
+	width: 120px;
+	padding:10px;
+}
+#leftmenu u1 {
+	margin: 50px; /* Отступ от левого края */
+	padding: 0px; /* Отступ от левого края рамки */
+}
+#leftmenu u1 li{
+	list-style-type: circle; /* Маркер для списков */
+	margin-bottom: 5px;
+}
 #main {
 	margin-left: 0px; /* Опять отступ от левого края */
-	border-left: 5px #42a315 solid;
+	border-left: 5px #17EB57 solid;
 	padding: 10px;
 }
 #main #add {
@@ -35,6 +48,17 @@ body {
 #main table td.centered {
 	text-align: center;
 }
+#main p.category {
+	font-weight: bold;
+}
+# p.not-in-stock {
+	color: #FF0000; 
+}
+#footer {
+	text-align: right;
+	border-top: 1px #cccccc solid;
+	padding-right: 10px;
+}
 #pagination #previous-page a {
 	float: left;
 	margin-left: 20px;
@@ -46,6 +70,7 @@ body {
 	float: right;
 	margin-right: 420px;
 }
+
 #information table {
 	width: 60%; /* Ширина таблицы */
 	border: 2px double black; /* Цвета ширина линий таблицы */
@@ -90,7 +115,7 @@ body {
 	margin: 0px 0px 10px 10px; /* Отступ сверху, , Отступ снизу, Отступ Слева */
 }
 #comics table {
-	width: 20%; /* Ширина таблицы */
+	width: 40%; /* Ширина таблицы */
 	border: 2px double black; /* Цвета ширина линий таблицы */
 	border-collapse: collapse;
 }
@@ -101,10 +126,47 @@ body {
 #comics table td.centered {
 	text-align: center;
 }
-#form {
-    margin: 20px;
+
+#login form {
+    margin: 10px;
+    max-width: 20%;
+    padding: 10px 30px 20px 30px;
+    border: 1px solid rgba(0,0,0,.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: rgba(0, 0, 0, 0.1); 
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+#edit {
+    margin: 10px;
     max-width: 35%;
     padding: 30px 30px 6px 30px;
+    border: 1px solid rgba(0,0,0,.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: rgba(0, 0, 0, 0.1); 
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+#delete {
+    margin: 10px;
+    max-width: 25%;
+    padding: 10px 30px 6px 30px;
     border: 1px solid rgba(0,0,0,.2);
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
